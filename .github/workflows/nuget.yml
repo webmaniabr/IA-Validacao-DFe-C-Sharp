@@ -2,24 +2,50 @@ name: Publicar no NuGet
 on:
   release:
     types: [created]
+  push:
+    tags:
+      - 'v*'
+      - '*.*.*'
+permissions:
+  contents: read
+  id-token: write 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write 
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.x
-    - name: Restore dependencies
-      run: dotnet restore src/WebmaniaBR.AI.Validation.csproj
-    - name: Build
-      run: dotnet build src/WebmaniaBR.AI.Validation.csproj --configuration Release --no-restore
-    - name: Pack
-      run: dotnet pack src/WebmaniaBR.AI.Validation.csproj --configuration Release --no-build -p:PackageVersion=${{ github.ref_name }} -p:Version=${{ github.ref_name }}
-    - name: Push to NuGet
-      run: dotnet nuget push "src/bin/Release/*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Compute package version from tag
+        run: echo "PKG_VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
+      - name: Restore
+        run: dotnet restore src/Webmania.AI.Validation.DFe.csproj
+
+      - name: Build
+        run: dotnet build src/Webmania.AI.Validation.DFe.csproj -c Release --no-restore
+
+      - name: Pack
+        run: |
+          dotnet pack src/Webmania.AI.Validation.DFe.csproj \
+            -c Release --no-build \
+            -p:PackageVersion=${{ env.PKG_VERSION }} \
+            -o artifacts
+
+      - name: NuGet login (OIDC)
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: webmania 
+
+      - name: Push to nuget.org
+        run: |
+          dotnet nuget push "artifacts/*.nupkg" \
+            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+            --source "https://api.nuget.org/v3/index.json"
