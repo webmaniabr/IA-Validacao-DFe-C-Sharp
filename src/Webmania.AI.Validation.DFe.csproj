@@ -9,7 +9,7 @@
     
     <PackageId>Webmania.AI.Validation.DFe</PackageId>
     <Version>1.0.0</Version> <Authors>Webmania®</Authors>
-    <Company>[Sua Empresa]</Company>
+    <Company>Webmania</Company>
     <Description>SDK em C#/.NET para consumir a API de Validação de Documentos Fiscais com IA da Webmania.</Description>
     <PackageTags>webmania ia validation api sdk nfce nfe nfse cte mdfe</PackageTags>
     <Copyright>Copyright (c) Webmania® 2025</Copyright>
