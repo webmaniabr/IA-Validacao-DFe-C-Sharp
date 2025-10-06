@@ -1,4 +1,4 @@
-# WebmaniaBR IA Validation SDK para C#/.NET
+# Validação de Documentos Fiscais com IA - SDK para C#/.NET
 
 [![NuGet](https://img.shields.io/nuget/v/WebmaniaBR.AI.Validation.svg)](https://www.nuget.org/packages/WebmaniaBR.AI.Validation/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
