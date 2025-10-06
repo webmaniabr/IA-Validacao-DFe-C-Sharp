@@ -1,4 +1,5 @@
 name: Publicar no NuGet
+
 on:
   release:
     types: [created]
@@ -6,46 +7,42 @@ on:
     tags:
       - 'v*'
       - '*.*.*'
+
 permissions:
   contents: read
-  id-token: write 
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
+          
       - name: Compute package version from tag
         run: echo "PKG_VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
-
+        
       - name: Restore
         run: dotnet restore src/Webmania.AI.Validation.DFe.csproj
-
+        
       - name: Build
         run: dotnet build src/Webmania.AI.Validation.DFe.csproj -c Release --no-restore
-
+        
       - name: Pack
         run: |
           dotnet pack src/Webmania.AI.Validation.DFe.csproj \
             -c Release --no-build \
             -p:PackageVersion=${{ env.PKG_VERSION }} \
             -o artifacts
-
-      - name: NuGet login (OIDC)
-        id: nuget-login
-        uses: NuGet/login@v1
-        with:
-          user: webmania 
-
+            
       - name: Push to nuget.org
         run: |
           dotnet nuget push "artifacts/*.nupkg" \
-            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
-            --source "https://api.nuget.org/v3/index.json"
+            --api-key "${{ secrets.NUGET_API_KEY }}" \
+            --source "https://api.nuget.org/v3/index.json" \
+            --skip-duplicate
