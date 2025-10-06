@@ -1,6 +1,6 @@
 # Validação de Documentos Fiscais com IA - SDK para C#/.NET
 
-[![NuGet](https://img.shields.io/nuget/v/WebmaniaBR.AI.Validation.svg)](https://www.nuget.org/packages/WebmaniaBR.AI.Validation/)
+[![NuGet](https://img.shields.io/nuget/v/Webmania.AI.Validation.DFe.svg)](https://www.nuget.org/packages/Webmania.AI.Validation.DFe/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.NET](https://img.shields.io/badge/.NET-6.0%2B-512BD4)](https://dotnet.microsoft.com/download)
 
@@ -33,13 +33,13 @@ SDK oficial em C#/.NET para consumir a API de Validação de Documentos Fiscais 
 
 ```bash
 # Package Manager
-Install-Package WebmaniaBR.AI.Validation
+Install-Package Webmania.AI.Validation.DFe
 
 # .NET CLI
-dotnet add package WebmaniaBR.AI.Validation
+dotnet add package Webmania.AI.Validation.DFe
 
 # PackageReference
-<PackageReference Include="WebmaniaBR.AI.Validation" Version="1.0.0" />
+<PackageReference Include="Webmania.AI.Validation.DFe" Version="1.0.0" />
 ```
 
 ### Via Docker
@@ -59,7 +59,7 @@ docker run --rm webmania/csharp-sdk
 ## ⚙️ Configuração Inicial
 
 ```csharp
-using WebmaniaBR.AI.Validation;
+using Webmania.AI.Validation.DFe;
 
 // Configuração básica
 var client = new ValidationClient("SEU_TOKEN_API");
