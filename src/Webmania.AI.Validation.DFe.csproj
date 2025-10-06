@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    [cite_start]<TargetFramework>net6.0</TargetFramework> [cite: 1]
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    [cite_start]<RootNamespace>Webmania.AI.Validation.DFe</RootNamespace> [cite: 1]
+    <RootNamespace>Webmania.AI.Validation.DFe</RootNamespace>
 
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    
+
     <PackageId>Webmania.AI.Validation.DFe</PackageId>
-    <Version>1.0.0</Version> <Authors>Webmania®</Authors>
+    <Version>1.0.0</Version>
+    <Authors>Webmania®</Authors>
     <Company>Webmania</Company>
     <Description>SDK em C#/.NET para consumir a API de Validação de Documentos Fiscais com IA da Webmania.</Description>
     <PackageTags>webmania ia validation api sdk nfce nfe nfse cte mdfe</PackageTags>
@@ -22,7 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
