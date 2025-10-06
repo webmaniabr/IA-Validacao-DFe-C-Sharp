@@ -376,7 +376,7 @@ catch (Exception ex)
 
 - **.NET 6.0** ou superior
 - **Docker** (opcional, para uso containerizado)
-- Token de API válido da WebmaniaBR
+- Token de API válido da Webmania
 
 ## 📞 Suporte
 
