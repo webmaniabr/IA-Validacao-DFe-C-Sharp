@@ -390,4 +390,4 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 
 ---
 
-**WebmaniaBR** © 2025 - Todos os direitos reservados
+**Webmania** © 2025 - Todos os direitos reservados
