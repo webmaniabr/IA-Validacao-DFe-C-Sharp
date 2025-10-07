@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.NET](https://img.shields.io/badge/.NET-6.0%2B-512BD4)](https://dotnet.microsoft.com/download)
 
-SDK oficial em C#/.NET para consumir a API de Validação de Documentos Fiscais com IA da WebmaniaBR. Valide NFe, NFCe, NFSe, CTe e MDFe através de imagens ou XML com tecnologia de inteligência artificial.
+SDK oficial em C#/.NET para consumir a API de Validação de Documentos Fiscais com IA da Webmania. Valide NFe, NFCe, NFSe, CTe e MDFe através de imagens ou XML com tecnologia de inteligência artificial.
 
 ## 📋 Índice
 
